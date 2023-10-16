@@ -2,9 +2,13 @@
     <header>
         <h1><?php the_title(); ?></h1>
         <div class="meta-info">
-            <p>Posted on <?php echo get_the_date(); ?> by <?php the_author_posts_link(); ?> </p>
-            <p>Categories: <?php the_category( ' ' ); ?></p>
-            <p>Tags: <?php the_tags( '', ', '); ?></p>
+            <p><?php _e('Posted on', 'wp-devs') ?> <?php echo get_the_date(); ?> <?php _e('by', 'wp-devs') ?> <?php the_author_posts_link(); ?> </p>
+            <?php if( has_category()): ?>
+                <p><?php _e( 'Categories', 'wp-devs' ) ?>: <?php the_category( ' ' ); ?></p>
+            <?php endif; ?>
+            <?php if( has_tag()): ?>
+                <p><?php _e('Tags', 'wp-devs' ) ?>: <?php the_tags( '', ', '); ?></p>
+            <?php endif; ?>
         </div>
     </header>
     <div class="content">

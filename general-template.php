@@ -24,7 +24,7 @@ Default Template is index.php
                                         endwhile;
                                     else:
                                         ?>
-                                        <p>No content to display</p>
+                                        <p><?php _e( 'No content to display', 'wp-devs' ) ?></p>
                                     <?php endif; ?>
                             </div>
                         </div>
