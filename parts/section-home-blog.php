@@ -1,5 +1,5 @@
 <section class="home-blog">
-    <h2><?php e('Latest News', 'wp-devs') ?></h2>
+    <h2>Latest News</h2>
     <div class="container">
         
         <?php
@@ -11,9 +11,9 @@
 
         $args = array(
             'post_type' => 'post',
-            'posts_per_page' => $per_page,
-            'category__in' => explode( ",", $category_include ),
-            "category__not_in" => explode( ",", $category_exclude )
+            'posts_per_page' => esc_html( $per_page ),
+            'category__in' => explode( ",", esc_html( $category_include ) ),
+            "category__not_in" => explode( ",", esc_html( $category_exclude ) )
         );
 
         $postlist = new WP_Query( $args );
@@ -25,7 +25,7 @@
                 wp_reset_postdata();
             else:
                 ?>
-                <p><?php e_('No content to display', 'wp-devs') ?></p>
+                <p><?php esc_html_e('No content to display', 'wp-devs') ?></p>
             <?php endif; ?>
         
     </div>

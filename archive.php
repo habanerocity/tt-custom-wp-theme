@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-    <img src="<?php echo header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="" />
+<img src="<?php header_image(); ?>" height="<?php echo esc_attr(get_custom_header()->height); ?>" width="<?php echo esc_attr(get_custom_header()->width); ?>" alt="" /> 
     <div id="content" class="site-content">
         <div id="primary" class="content-area">
             <main id="main" class="site-main">
@@ -15,16 +15,16 @@
                         ?>
                          <div class="wpdevs-pagination">
                             <div class="pages new">
-                                <?php previous_posts_link( __( "<< Newer posts" , 'wp-devs' ) ); ?>
+                                <?php previous_posts_link( esc_html__( "<< Newer posts" ) , 'wp-devs' ); ?>
                             </div>
                             <div class="pages old">
-                                <?php next_posts_link( __("Older posts >>", 'wp-devs') ); ?>
+                                <?php next_posts_link( esc_html__( "Older posts >>" ), 'wp-devs' ); ?>
                             </div>
                         </div>
                         <?php
                         else:
                         ?>
-                            echo <p>_e( 'No content to display', 'wp-devs' )</p>;
+                            echo <p>esc_html_e( 'No content to display', 'wp-devs' )</p>;
                         <?php endif; ?>
                     </div>
                     <?php get_sidebar(); ?>
